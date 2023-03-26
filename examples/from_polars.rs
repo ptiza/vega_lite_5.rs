@@ -1,5 +1,4 @@
 use polars::prelude::*;
-use std::path::Path;
 use vega_lite_5::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -7,7 +6,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let df = CsvReader::from_path("examples/res/data/stocks.csv")?
         .has_header(true)
         .finish()?;
-    let df = df.lazy().filter(col("symbol").eq("GOOG")).collect()?;
+    let df = df.lazy().filter(col("symbol").eq(lit("GOOG"))).collect()?;
     // the chart
     let chart = VegaliteBuilder::default()
         .title("Stock price")
