@@ -4,7 +4,7 @@ use vega_lite_5::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // input data: a CSV reader
-    let df = CsvReader::from_path("iris.csv")?
+    let df = CsvReader::from_path("examples/res/data/stocks.csv")?
         .has_header(true)
         .finish()?;
     let df = df.lazy().filter(col("symbol").eq("GOOG")).collect()?;
