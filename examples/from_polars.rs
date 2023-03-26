@@ -6,11 +6,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let df = CsvReader::from_path("examples/res/data/stocks.csv")?
         .has_header(true)
         .finish()?;
-    let df = df.lazy().filter(col("symbol").eq(lit("GOOG"))).collect()?;
+    let df = df
+        .lazy()
+        .filter(
+            col("symbol")
+                .eq(lit("AMZN"))
+                .or(col("symbol").eq(lit("AAPL"))),
+        )
+        .collect()?;
     // the chart
     let chart = VegaliteBuilder::default()
-        .title("Stock price")
-        .description("Google's stock price over time.")
+        .title("Stock price: Amazon vs Apple")
+        .description("Amazon vs Apple stock price over time.")
         .data(df)
         .mark(Mark::Line)
         .encoding(
@@ -25,6 +32,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .position_def_type(Type::Quantitative)
                     .axis(AxisBuilder::default().title("price").build()?)
                     .build()?)
+                .color(
+                    ColorClassBuilder::default()
+                        .field("symbol")
+                        .legend(
+                            LegendBuilder::default()
+                                .orient(LegendOrient::Right)
+                                .title(RemovableValue::Remove)
+                                .build()?,
+                        )
+                        .build()?,
+                )
                 .build()?,
         )
         .build()?;
