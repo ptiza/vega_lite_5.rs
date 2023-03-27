@@ -6,7 +6,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .title("Stock price")
         .description("Google's stock price over time.")
         .data(UrlDataBuilder::default().url(
-            "https://raw.githubusercontent.com/procyon-rs/vega_lite_4.rs/master/examples/res/data/stocks.csv"
+            "https://vega.github.io/vega-datasets/data/stocks.csv"
         ).build()?)
         .transform(vec![
             TransformBuilder::default().filter("datum.symbol==='GOOG'")
