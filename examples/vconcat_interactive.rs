@@ -5,10 +5,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     selector_1.push(
         SelectionParameterBuilder::default()
             .name("brush")
-            .select(SelectionConfigBuilder::default()
+            .select(
+                SelectionConfigBuilder::default()
                     .selection_config_type(SelectionType::Interval)
                     .encodings(vec![SingleDefUnitChannel::X])
-                    .build()?)
+                    .build()?,
+            )
             .build()?,
     );
     let mut selector_2 = vec![];

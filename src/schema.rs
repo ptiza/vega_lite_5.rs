@@ -48,7 +48,7 @@ pub struct Vegalite {
     /// __Default value:__ `"all"`.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub align: Option<VegaliteAlign>,
+    pub align: Option<Box<VegaliteAlign>>,
     /// How the visualization size should be determined. If a string, should be one of `"pad"`,
     /// `"fit"` or `"none"`. Object values can additionally specify parameters for content sizing
     /// and automatic resizing.
@@ -56,7 +56,7 @@ pub struct Vegalite {
     /// __Default value__: `pad`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub autosize: Option<Autosize>,
+    pub autosize: Option<Box<Autosize>>,
     /// CSS color property to use as the background of the entire view.
     ///
     /// __Default value:__ `"white"`
@@ -75,7 +75,7 @@ pub struct Vegalite {
     /// __Default value:__ `"full"`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub bounds: Option<Bounds>,
+    pub bounds: Option<Box<Bounds>>,
     /// Boolean flag indicating if subviews should be centered relative to their respective rows
     /// or columns.
     ///
@@ -90,7 +90,7 @@ pub struct Vegalite {
     /// __Default value:__ `false`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub center: Option<Center>,
+    pub center: Option<Box<Center>>,
     /// Vega-Lite configuration object. This property can only be defined at the top-level of a
     /// specification.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -170,11 +170,11 @@ pub struct Vegalite {
     /// An object defining properties of the geographic projection shared by underlying layers.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub projection: Option<Projection>,
+    pub projection: Option<Box<Projection>>,
     /// Scale, axis, and legend resolutions for view composition specifications.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub resolve: Option<Resolve>,
+    pub resolve: Option<Box<Resolve>>,
     /// The spacing in pixels between sub-views of the composition operator. An object of the
     /// form `{"row": number, "column": number}` can be used to set different spacing values for
     /// rows and columns.
@@ -188,7 +188,7 @@ pub struct Vegalite {
     /// __Default value__: `10`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub spacing: Option<Spacing>,
+    pub spacing: Option<Box<Spacing>>,
     /// Title for the plot.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -207,7 +207,7 @@ pub struct Vegalite {
     /// __Default value:__ none (transparent)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub view: Option<ViewBackground>,
+    pub view: Option<Box<ViewBackground>>,
     /// The width of a visualization.
     ///
     /// - For a plot with a continuous x-field, width should be a number.
@@ -251,7 +251,7 @@ pub struct Vegalite {
     /// definitions](https://vega.github.io/vega-lite/docs/facet.html#mapping)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub facet: Option<Facet>,
+    pub facet: Option<Box<Facet>>,
     /// A specification of the view that gets faceted.
     ///
     /// A specification of the view that gets repeated.
@@ -275,7 +275,7 @@ pub struct Vegalite {
     /// and `{"repeat": "column"}` can be used to refer to the repeated field respectively.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub repeat: Option<RepeatUnion>,
+    pub repeat: Option<Box<RepeatUnion>>,
     /// A list of views to be concatenated.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -398,7 +398,7 @@ pub struct SpecSpec {
     /// __Default value:__ `"all"`.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub align: Option<VegaliteAlign>,
+    pub align: Option<Box<VegaliteAlign>>,
     /// The bounds calculation method to use for determining the extent of a sub-plot. One of
     /// `full` (the default) or `flush`.
     ///
@@ -411,7 +411,7 @@ pub struct SpecSpec {
     /// __Default value:__ `"full"`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub bounds: Option<Bounds>,
+    pub bounds: Option<Box<Bounds>>,
     /// Boolean flag indicating if subviews should be centered relative to their respective rows
     /// or columns.
     ///
@@ -426,7 +426,7 @@ pub struct SpecSpec {
     /// __Default value:__ `false`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub center: Option<Center>,
+    pub center: Option<Box<Center>>,
     /// An object describing the data source. Set to `null` to ignore the parent's data source.
     /// If no data is set, it is derived from the parent.
     #[serde(default, skip_serializing_if = "RemovableValue::is_default")]
@@ -484,11 +484,11 @@ pub struct SpecSpec {
     /// An object defining properties of the geographic projection shared by underlying layers.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub projection: Option<Projection>,
+    pub projection: Option<Box<Projection>>,
     /// Scale, axis, and legend resolutions for view composition specifications.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub resolve: Option<Resolve>,
+    pub resolve: Option<Box<Resolve>>,
     /// The spacing in pixels between sub-views of the composition operator. An object of the
     /// form `{"row": number, "column": number}` can be used to set different spacing values for
     /// rows and columns.
@@ -502,7 +502,7 @@ pub struct SpecSpec {
     /// __Default value__: `10`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub spacing: Option<Spacing>,
+    pub spacing: Option<Box<Spacing>>,
     /// Title for the plot.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -516,7 +516,7 @@ pub struct SpecSpec {
     /// __Default value:__ none (transparent)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub view: Option<ViewBackground>,
+    pub view: Option<Box<ViewBackground>>,
     /// The width of a visualization.
     ///
     /// - For a plot with a continuous x-field, width should be a number.
@@ -571,7 +571,7 @@ pub struct SpecSpec {
     /// and `{"repeat": "column"}` can be used to refer to the repeated field respectively.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub repeat: Option<RepeatUnion>,
+    pub repeat: Option<Box<RepeatUnion>>,
     /// A specification of the view that gets repeated.
     ///
     /// A specification of the view that gets faceted.
@@ -584,7 +584,7 @@ pub struct SpecSpec {
     /// definitions](https://vega.github.io/vega-lite/docs/facet.html#mapping)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub facet: Option<Facet>,
+    pub facet: Option<Box<Facet>>,
     /// A list of views to be concatenated.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -638,7 +638,7 @@ pub struct Spec {
     /// __Default value:__ `"all"`.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub align: Option<VegaliteAlign>,
+    pub align: Option<Box<VegaliteAlign>>,
     /// The bounds calculation method to use for determining the extent of a sub-plot. One of
     /// `full` (the default) or `flush`.
     ///
@@ -651,7 +651,7 @@ pub struct Spec {
     /// __Default value:__ `"full"`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub bounds: Option<Bounds>,
+    pub bounds: Option<Box<Bounds>>,
     /// Boolean flag indicating if subviews should be centered relative to their respective rows
     /// or columns.
     ///
@@ -666,7 +666,7 @@ pub struct Spec {
     /// __Default value:__ `false`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub center: Option<Center>,
+    pub center: Option<Box<Center>>,
     /// An object describing the data source. Set to `null` to ignore the parent's data source.
     /// If no data is set, it is derived from the parent.
     #[serde(default, skip_serializing_if = "RemovableValue::is_default")]
@@ -724,11 +724,11 @@ pub struct Spec {
     /// An object defining properties of the geographic projection shared by underlying layers.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub projection: Option<Projection>,
+    pub projection: Option<Box<Projection>>,
     /// Scale, axis, and legend resolutions for view composition specifications.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub resolve: Option<Resolve>,
+    pub resolve: Option<Box<Resolve>>,
     /// The spacing in pixels between sub-views of the composition operator. An object of the
     /// form `{"row": number, "column": number}` can be used to set different spacing values for
     /// rows and columns.
@@ -742,7 +742,7 @@ pub struct Spec {
     /// __Default value__: `10`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub spacing: Option<Spacing>,
+    pub spacing: Option<Box<Spacing>>,
     /// Title for the plot.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -756,7 +756,7 @@ pub struct Spec {
     /// __Default value:__ none (transparent)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub view: Option<ViewBackground>,
+    pub view: Option<Box<ViewBackground>>,
     /// The width of a visualization.
     ///
     /// - For a plot with a continuous x-field, width should be a number.
@@ -811,7 +811,7 @@ pub struct Spec {
     /// and `{"repeat": "column"}` can be used to refer to the repeated field respectively.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub repeat: Option<RepeatUnion>,
+    pub repeat: Option<Box<RepeatUnion>>,
     /// A specification of the view that gets repeated.
     ///
     /// A specification of the view that gets faceted.
@@ -824,7 +824,7 @@ pub struct Spec {
     /// definitions](https://vega.github.io/vega-lite/docs/facet.html#mapping)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub facet: Option<Facet>,
+    pub facet: Option<Box<Facet>>,
     /// A list of views to be concatenated.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -4986,7 +4986,7 @@ pub struct FacetEncodingFieldDef {
     /// __Default value:__ `"all"`.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub align: Option<VegaliteAlign>,
+    pub align: Option<Box<VegaliteAlign>>,
     /// Relative position on a band of a stacked, binned, time unit, or band scale. For example,
     /// the marks will be positioned at the beginning of the band if set to `0`, and at the
     /// middle of the band if set to `0.5`.
@@ -5027,7 +5027,7 @@ pub struct FacetEncodingFieldDef {
     /// __Default value:__ `"full"`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub bounds: Option<Bounds>,
+    pub bounds: Option<Box<Bounds>>,
     /// Boolean flag indicating if subviews should be centered relative to their respective rows
     /// or columns.
     ///
@@ -5037,7 +5037,7 @@ pub struct FacetEncodingFieldDef {
     /// __Default value:__ `false`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub center: Option<Center>,
+    pub center: Option<Box<Center>>,
     /// The number of columns to include in the view composition layout.
     ///
     /// __Default value__: `undefined` -- An infinite number of columns (a single row) will be
@@ -5109,7 +5109,7 @@ pub struct FacetEncodingFieldDef {
     /// default)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub spacing: Option<Spacing>,
+    pub spacing: Option<Box<Spacing>>,
     /// Time unit (e.g., `year`, `yearmonth`, `month`, `hours`) for a temporal field. or [a
     /// temporal field that gets casted as
     /// ordinal](https://vega.github.io/vega-lite/docs/type.html#cast).
@@ -14925,11 +14925,11 @@ pub struct LayerSpec {
     /// path for `"geoshape"` marks and to `latitude` and `"longitude"` channels for other marks.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub projection: Option<Projection>,
+    pub projection: Option<Box<Projection>>,
     /// Scale, axis, and legend resolutions for view composition specifications.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub resolve: Option<Resolve>,
+    pub resolve: Option<Box<Resolve>>,
     /// Title for the plot.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -14943,7 +14943,7 @@ pub struct LayerSpec {
     /// __Default value:__ none (transparent)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub view: Option<ViewBackground>,
+    pub view: Option<Box<ViewBackground>>,
     /// The width of a visualization.
     ///
     /// - For a plot with a continuous x-field, width should be a number.
@@ -18736,7 +18736,7 @@ pub struct ConfigClass {
     /// __Default value__: `pad`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub autosize: Option<Autosize>,
+    pub autosize: Option<Box<Autosize>>,
     /// Axis configuration, which determines default properties for all `x` and `y`
     /// [axes](https://vega.github.io/vega-lite/docs/axis.html). For a full list of axis
     /// configuration options, please see the [corresponding section of the axis
@@ -19055,7 +19055,7 @@ pub struct ConfigClass {
     /// documentation](https://vega.github.io/vega-lite/docs/projection.html#config).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub projection: Option<Projection>,
+    pub projection: Option<Box<Projection>>,
     /// An object hash that defines default range arrays or schemes for using with scales. For a
     /// full list of scale range configuration options, please see the [corresponding section of
     /// the scale documentation](https://vega.github.io/vega-lite/docs/scale.html#config).
@@ -24709,11 +24709,11 @@ pub struct VegaliteSpec {
     /// path for `"geoshape"` marks and to `latitude` and `"longitude"` channels for other marks.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub projection: Option<Projection>,
+    pub projection: Option<Box<Projection>>,
     /// Scale, axis, and legend resolutions for view composition specifications.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub resolve: Option<Resolve>,
+    pub resolve: Option<Box<Resolve>>,
     /// Title for the plot.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24727,7 +24727,7 @@ pub struct VegaliteSpec {
     /// __Default value:__ none (transparent)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub view: Option<ViewBackground>,
+    pub view: Option<Box<ViewBackground>>,
     /// The width of a visualization.
     ///
     /// - For a plot with a continuous x-field, width should be a number.
@@ -24775,7 +24775,7 @@ pub struct VegaliteSpec {
     /// __Default value:__ `"all"`.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub align: Option<VegaliteAlign>,
+    pub align: Option<Box<VegaliteAlign>>,
     /// The bounds calculation method to use for determining the extent of a sub-plot. One of
     /// `full` (the default) or `flush`.
     ///
@@ -24788,7 +24788,7 @@ pub struct VegaliteSpec {
     /// __Default value:__ `"full"`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub bounds: Option<Bounds>,
+    pub bounds: Option<Box<Bounds>>,
     /// Boolean flag indicating if subviews should be centered relative to their respective rows
     /// or columns.
     ///
@@ -24803,7 +24803,7 @@ pub struct VegaliteSpec {
     /// __Default value:__ `false`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub center: Option<Center>,
+    pub center: Option<Box<Center>>,
     /// The spacing in pixels between sub-views of the composition operator. An object of the
     /// form `{"row": number, "column": number}` can be used to set different spacing values for
     /// rows and columns.
@@ -24817,7 +24817,7 @@ pub struct VegaliteSpec {
     /// __Default value__: `10`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub spacing: Option<Spacing>,
+    pub spacing: Option<Box<Spacing>>,
     /// The number of columns to include in the view composition layout.
     ///
     /// __Default value__: `undefined` -- An infinite number of columns (a single row) will be
@@ -24844,7 +24844,7 @@ pub struct VegaliteSpec {
     /// and `{"repeat": "column"}` can be used to refer to the repeated field respectively.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub repeat: Option<RepeatUnion>,
+    pub repeat: Option<Box<RepeatUnion>>,
     /// A specification of the view that gets repeated.
     ///
     /// A specification of the view that gets faceted.
@@ -24857,7 +24857,7 @@ pub struct VegaliteSpec {
     /// definitions](https://vega.github.io/vega-lite/docs/facet.html#mapping)
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub facet: Option<Facet>,
+    pub facet: Option<Box<Facet>>,
     /// A list of views to be concatenated.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]

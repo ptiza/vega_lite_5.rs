@@ -110,7 +110,17 @@ echo '-- allocation on heap to reduce stack use'
 #   fatal runtime error: stack overflow
 #sed -i 's/: Option<\([A-Z][a-zA-Z0-9]*\))>>/: Option<Box<\1>>/' $file
 sed -i 's/: Option<SpecSpec>/: Option<Box<SpecSpec>>/' $file
+sed -i 's/: Option<Autosize>/: Option<Box<Autosize>>/' $file
+sed -i 's/: Option<Bounds>/: Option<Box<Bounds>>/' $file
+sed -i 's/: Option<Center>/: Option<Box<Center>>/' $file
+sed -i 's/: Option<Projection>/: Option<Box<Projection>>/' $file
+sed -i 's/: Option<Resolve>/: Option<Box<Resolve>>/' $file
+sed -i 's/: Option<Spacing>/: Option<Box<Spacing>>/' $file
+sed -i 's/: Option<Facet>/: Option<Box<Facet>>/' $file
+sed -i 's/: Option<RepeatUnion>/: Option<Box<RepeatUnion>>/' $file
+sed -i 's/: Option<ViewBackground>/: Option<Box<ViewBackground>>/' $file
 sed -i 's/: Option<VegaliteSpec>/: Option<Box<VegaliteSpec>>/' $file
+sed -i 's/: Option<VegaliteAlign>/: Option<Box<VegaliteAlign>>/' $file
 sed -i 's/: Option<ConfigClass>/: Option<Box<ConfigClass>>/' $file
 sed -i 's/: Option<EdEncoding>/: Option<Box<EdEncoding>>/' $file
 

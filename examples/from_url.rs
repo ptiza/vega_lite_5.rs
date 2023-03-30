@@ -5,22 +5,28 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let chart = VegaliteBuilder::default()
         .title("Stock price")
         .description("Google's stock price over time.")
-        .data(UrlDataBuilder::default().url(
-            "https://vega.github.io/vega-datasets/data/stocks.csv"
-        ).build()?)
-        .transform(vec![
-            TransformBuilder::default().filter("datum.symbol==='GOOG'")
-        .build()?])
+        .data(
+            UrlDataBuilder::default()
+                .url("https://vega.github.io/vega-datasets/data/stocks.csv")
+                .build()?,
+        )
+        .transform(vec![TransformBuilder::default()
+            .filter("datum.symbol==='GOOG'")
+            .build()?])
         .mark(Mark::Line)
-        .encoding(EdEncodingBuilder::default()
-            .x(XClassBuilder::default()
-                .field("date")
-                .position_def_type(Type::Temporal)
-                .build()?)
-            .y(YClassBuilder::default()
-                .field("price")
-                .position_def_type(Type::Quantitative)
-                .build()?).build()?).build()?;
+        .encoding(
+            EdEncodingBuilder::default()
+                .x(XClassBuilder::default()
+                    .field("date")
+                    .position_def_type(Type::Temporal)
+                    .build()?)
+                .y(YClassBuilder::default()
+                    .field("price")
+                    .position_def_type(Type::Quantitative)
+                    .build()?)
+                .build()?,
+        )
+        .build()?;
 
     // display the chart using `showata`
     chart.show()?;
