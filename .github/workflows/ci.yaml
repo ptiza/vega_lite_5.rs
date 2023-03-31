@@ -31,7 +31,7 @@ jobs:
           dotnet: true
           haskell: true
           large-packages: true
-        swap-storage: true
+          swap-storage: true
       - uses: davidB/rust-cargo-make@v1
       - uses: actions/checkout@v3
       - name: Run tests
