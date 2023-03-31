@@ -123,6 +123,11 @@ sed -i 's/: Option<VegaliteSpec>/: Option<Box<VegaliteSpec>>/' $file
 sed -i 's/: Option<VegaliteAlign>/: Option<Box<VegaliteAlign>>/' $file
 sed -i 's/: Option<ConfigClass>/: Option<Box<ConfigClass>>/' $file
 sed -i 's/: Option<EdEncoding>/: Option<Box<EdEncoding>>/' $file
+sed -i 's/: Option<Color>/: Option<Box<Color>>/' $file
+sed -i 's/: Option<Padding>/: Option<Box<Padding>>/' $file
+
+sed -i 's/Step(Step)/Step(Box<Step>)/' $file
+sed -i 's/TitleParams(TitleParams)/TitleParams(Box<TitleParams>)/' $file
 
 cargo fmt -- $file
 

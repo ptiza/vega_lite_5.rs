@@ -62,7 +62,7 @@ pub struct Vegalite {
     /// __Default value:__ `"white"`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub background: Option<Color>,
+    pub background: Option<Box<Color>>,
     /// The bounds calculation method to use for determining the extent of a sub-plot. One of
     /// `full` (the default) or `flush`.
     ///
@@ -155,7 +155,7 @@ pub struct Vegalite {
     /// __Default value__: `5`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub padding: Option<Padding>,
+    pub padding: Option<Box<Padding>>,
     /// An array of parameters that may either be simple variables, or more complex selections
     /// that map user input to data queries.
     ///
@@ -2340,7 +2340,7 @@ pub struct Legend {
     pub corner_radius: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     /// The direction of the legend, one of `"vertical"` or `"horizontal"`.
     ///
     /// __Default value:__
@@ -2354,7 +2354,7 @@ pub struct Legend {
     #[serde(rename = "fillColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub fill_color: Option<Color>,
+    pub fill_color: Option<Box<Color>>,
     /// When used with the default `"number"` and `"time"` format type, the text formatting
     /// pattern for labels of guides (axes, legends, headers) and text marks.
     ///
@@ -2400,7 +2400,7 @@ pub struct Legend {
     #[serde(rename = "gradientStrokeColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub gradient_stroke_color: Option<Color>,
+    pub gradient_stroke_color: Option<Box<Color>>,
     #[serde(rename = "gradientStrokeWidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -2424,7 +2424,7 @@ pub struct Legend {
     #[serde(rename = "labelColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_color: Option<Color>,
+    pub label_color: Option<Box<Color>>,
     /// [Vega expression](https://vega.github.io/vega/docs/expressions/) for customizing labels.
     ///
     /// __Note:__ The label text and value can be assessed via the `label` and `value` properties
@@ -2436,7 +2436,7 @@ pub struct Legend {
     #[serde(rename = "labelFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_font: Option<Color>,
+    pub label_font: Option<Box<Color>>,
     #[serde(rename = "labelFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -2444,7 +2444,7 @@ pub struct Legend {
     #[serde(rename = "labelFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_font_style: Option<Color>,
+    pub label_font_style: Option<Box<Color>>,
     #[serde(rename = "labelFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -2502,7 +2502,7 @@ pub struct Legend {
     #[serde(rename = "strokeColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub stroke_color: Option<Color>,
+    pub stroke_color: Option<Box<Color>>,
     #[serde(rename = "symbolDash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -2514,7 +2514,7 @@ pub struct Legend {
     #[serde(rename = "symbolFillColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub symbol_fill_color: Option<Color>,
+    pub symbol_fill_color: Option<Box<Color>>,
     #[serde(rename = "symbolLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -2534,7 +2534,7 @@ pub struct Legend {
     #[serde(rename = "symbolStrokeColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub symbol_stroke_color: Option<Color>,
+    pub symbol_stroke_color: Option<Box<Color>>,
     #[serde(rename = "symbolStrokeWidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -2542,7 +2542,7 @@ pub struct Legend {
     #[serde(rename = "symbolType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub symbol_type: Option<Color>,
+    pub symbol_type: Option<Box<Color>>,
     #[serde(rename = "tickCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -2594,11 +2594,11 @@ pub struct Legend {
     #[serde(rename = "titleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_color: Option<Color>,
+    pub title_color: Option<Box<Color>>,
     #[serde(rename = "titleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font: Option<Color>,
+    pub title_font: Option<Box<Color>>,
     #[serde(rename = "titleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -2606,7 +2606,7 @@ pub struct Legend {
     #[serde(rename = "titleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font_style: Option<Color>,
+    pub title_font_style: Option<Box<Color>>,
     #[serde(rename = "titleFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -4125,7 +4125,7 @@ pub struct Header {
     #[serde(rename = "labelColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_color: Option<Color>,
+    pub label_color: Option<Box<Color>>,
     /// [Vega expression](https://vega.github.io/vega/docs/expressions/) for customizing labels.
     ///
     /// __Note:__ The label text and value can be assessed via the `label` and `value` properties
@@ -4138,7 +4138,7 @@ pub struct Header {
     #[serde(rename = "labelFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_font: Option<Color>,
+    pub label_font: Option<Box<Color>>,
     /// The font size of the header label, in pixels.
     #[serde(rename = "labelFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -4148,7 +4148,7 @@ pub struct Header {
     #[serde(rename = "labelFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_font_style: Option<Color>,
+    pub label_font_style: Option<Box<Color>>,
     /// The font weight of the header label.
     #[serde(rename = "labelFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -4245,12 +4245,12 @@ pub struct Header {
     #[serde(rename = "titleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_color: Option<Color>,
+    pub title_color: Option<Box<Color>>,
     /// Font of the header title. (e.g., `"Helvetica Neue"`).
     #[serde(rename = "titleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font: Option<Color>,
+    pub title_font: Option<Box<Color>>,
     /// Font size of the header title.
     #[serde(rename = "titleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -4260,7 +4260,7 @@ pub struct Header {
     #[serde(rename = "titleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font_style: Option<Color>,
+    pub title_font_style: Option<Box<Color>>,
     /// Font weight of the header title. This can be either a string (e.g `"bold"`, `"normal"`)
     /// or a number (`100`, `200`, `300`, ..., `900` where `"normal"` = `400` and `"bold"` =
     /// `700`).
@@ -4534,7 +4534,7 @@ pub struct DescriptionClass {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default, Builder)]
@@ -4549,7 +4549,7 @@ pub struct PurpleConditionalValueDefStringExprRef {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
     /// For selection parameters, the predicate of empty selections returns true by default.
     /// Override this behavior, by setting this property `empty: false`.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -4573,7 +4573,7 @@ pub struct PurpleConditionalPExprRef {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
     /// For selection parameters, the predicate of empty selections returns true by default.
     /// Override this behavior, by setting this property `empty: false`.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -5951,7 +5951,7 @@ pub struct HrefClass {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
 }
 
 /// Field Def without scale (and without bin: "binned" support).
@@ -8127,7 +8127,7 @@ pub struct MarkPropDefStringNullTypeForShape {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default, Builder)]
@@ -8142,7 +8142,7 @@ pub struct ConditionalValueDefStringNullExprRef {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
     /// For selection parameters, the predicate of empty selections returns true by default.
     /// Override this behavior, by setting this property `empty: false`.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -8166,7 +8166,7 @@ pub struct ConditionalPValueDefStringNullExprRef {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
     /// For selection parameters, the predicate of empty selections returns true by default.
     /// Override this behavior, by setting this property `empty: false`.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -11197,7 +11197,7 @@ pub struct FieldOrDatumDefWithConditionStringFieldDefString {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default, Builder)]
@@ -11212,7 +11212,7 @@ pub struct FluffyConditionalValueDefStringExprRef {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
     /// For selection parameters, the predicate of empty selections returns true by default.
     /// Override this behavior, by setting this property `empty: false`.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -11236,7 +11236,7 @@ pub struct FluffyConditionalPExprRef {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
     /// For selection parameters, the predicate of empty selections returns true by default.
     /// Override this behavior, by setting this property `empty: false`.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -11665,7 +11665,7 @@ pub struct UrlClass {
     /// between `0` to `1` for opacity).
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub value: Option<Color>,
+    pub value: Option<Box<Color>>,
 }
 
 /// X coordinates of the marks, or width of horizontal `"bar"` and `"area"` without specified
@@ -11949,7 +11949,7 @@ pub struct Axis {
     pub band_position: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     /// A boolean flag indicating if the domain (the axis baseline) should be included as part of
     /// the axis.
     ///
@@ -11964,7 +11964,7 @@ pub struct Axis {
     #[serde(rename = "domainColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub domain_color: Option<Color>,
+    pub domain_color: Option<Box<Color>>,
     #[serde(rename = "domainDash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -12318,11 +12318,11 @@ pub struct Axis {
     #[serde(rename = "titleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_color: Option<Color>,
+    pub title_color: Option<Box<Color>>,
     #[serde(rename = "titleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font: Option<Color>,
+    pub title_font: Option<Box<Color>>,
     #[serde(rename = "titleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -12330,7 +12330,7 @@ pub struct Axis {
     #[serde(rename = "titleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font_style: Option<Color>,
+    pub title_font_style: Option<Box<Color>>,
     #[serde(rename = "titleFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -15436,11 +15436,11 @@ pub struct Def {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -15515,7 +15515,7 @@ pub struct Def {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -15533,7 +15533,7 @@ pub struct Def {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     /// Default fill color. This property has higher precedence than `config.color`. Set to
     /// `null` to remove fill.
     ///
@@ -15559,7 +15559,7 @@ pub struct Def {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -15567,7 +15567,7 @@ pub struct Def {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -15582,7 +15582,7 @@ pub struct Def {
     pub height: Option<BoxPlotDefHeight>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -15608,7 +15608,7 @@ pub struct Def {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -15672,7 +15672,7 @@ pub struct Def {
     pub radius_offset: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub smooth: Option<Aria>,
@@ -15787,7 +15787,7 @@ pub struct Def {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     /// Width of the marks.  One of:
     ///
     /// - A number representing a fixed pixel width.
@@ -15905,11 +15905,11 @@ pub struct Config {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -15966,7 +15966,7 @@ pub struct Config {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -15978,7 +15978,7 @@ pub struct Config {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -16008,7 +16008,7 @@ pub struct Config {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -16016,7 +16016,7 @@ pub struct Config {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -16026,7 +16026,7 @@ pub struct Config {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -16051,7 +16051,7 @@ pub struct Config {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -16108,7 +16108,7 @@ pub struct Config {
     pub radius2: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -16221,7 +16221,7 @@ pub struct Config {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -16515,11 +16515,11 @@ pub struct OverlayMarkDef {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -16580,7 +16580,7 @@ pub struct OverlayMarkDef {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -16592,7 +16592,7 @@ pub struct OverlayMarkDef {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -16622,7 +16622,7 @@ pub struct OverlayMarkDef {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -16630,7 +16630,7 @@ pub struct OverlayMarkDef {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -16640,7 +16640,7 @@ pub struct OverlayMarkDef {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -16665,7 +16665,7 @@ pub struct OverlayMarkDef {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -16732,7 +16732,7 @@ pub struct OverlayMarkDef {
     pub radius_offset: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -16869,7 +16869,7 @@ pub struct OverlayMarkDef {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -17696,7 +17696,7 @@ pub struct TitleParams {
     pub baseline: Option<Baseline>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub color: Option<Color>,
+    pub color: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dx: Option<CornerRadiusUnion>,
@@ -17705,7 +17705,7 @@ pub struct TitleParams {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -17713,14 +17713,14 @@ pub struct TitleParams {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub font_weight: Option<FontWeightUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub frame: Option<Color>,
+    pub frame: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub limit: Option<FontSize>,
@@ -17748,11 +17748,11 @@ pub struct TitleParams {
     #[serde(rename = "subtitleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub subtitle_color: Option<Color>,
+    pub subtitle_color: Option<Box<Color>>,
     #[serde(rename = "subtitleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub subtitle_font: Option<Color>,
+    pub subtitle_font: Option<Box<Color>>,
     #[serde(rename = "subtitleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -17760,7 +17760,7 @@ pub struct TitleParams {
     #[serde(rename = "subtitleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub subtitle_font_style: Option<Color>,
+    pub subtitle_font_style: Option<Box<Color>>,
     #[serde(rename = "subtitleFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -18344,7 +18344,7 @@ pub struct ViewBackground {
     /// __Default value:__ `undefined`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub fill: Option<Color>,
+    pub fill: Option<Box<Color>>,
     #[serde(rename = "fillOpacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -18854,7 +18854,7 @@ pub struct ConfigClass {
     /// __Default value:__ `"white"`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub background: Option<Color>,
+    pub background: Option<Box<Color>>,
     /// Bar-Specific Config
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -18974,7 +18974,7 @@ pub struct ConfigClass {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     /// Locale definitions for string parsing and formatting of number and date values. The
     /// locale object should contain `number` and/or `time` properties with [locale
     /// definitions](https://vega.github.io/vega/docs/api/locale/). Locale definitions provided
@@ -19040,7 +19040,7 @@ pub struct ConfigClass {
     /// __Default value__: `5`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub padding: Option<Padding>,
+    pub padding: Option<Box<Padding>>,
     /// Dynamic variables or selections that parameterize a visualization.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19164,11 +19164,11 @@ pub struct RectConfig {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -19240,7 +19240,7 @@ pub struct RectConfig {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -19258,7 +19258,7 @@ pub struct RectConfig {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19288,7 +19288,7 @@ pub struct RectConfig {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19296,7 +19296,7 @@ pub struct RectConfig {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19306,7 +19306,7 @@ pub struct RectConfig {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -19331,7 +19331,7 @@ pub struct RectConfig {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19388,7 +19388,7 @@ pub struct RectConfig {
     pub radius2: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -19501,7 +19501,7 @@ pub struct RectConfig {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -19557,11 +19557,11 @@ pub struct AreaConfig {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -19618,7 +19618,7 @@ pub struct AreaConfig {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -19630,7 +19630,7 @@ pub struct AreaConfig {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19660,7 +19660,7 @@ pub struct AreaConfig {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19668,7 +19668,7 @@ pub struct AreaConfig {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19678,7 +19678,7 @@ pub struct AreaConfig {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -19715,7 +19715,7 @@ pub struct AreaConfig {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -19788,7 +19788,7 @@ pub struct AreaConfig {
     pub radius2: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -19901,7 +19901,7 @@ pub struct AreaConfig {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -19995,7 +19995,7 @@ pub struct AxisConfig {
     pub band_position: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     /// Disable axis by default.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -20014,7 +20014,7 @@ pub struct AxisConfig {
     #[serde(rename = "domainColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub domain_color: Option<Color>,
+    pub domain_color: Option<Box<Color>>,
     #[serde(rename = "domainDash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -20368,11 +20368,11 @@ pub struct AxisConfig {
     #[serde(rename = "titleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_color: Option<Color>,
+    pub title_color: Option<Box<Color>>,
     #[serde(rename = "titleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font: Option<Color>,
+    pub title_font: Option<Box<Color>>,
     #[serde(rename = "titleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -20380,7 +20380,7 @@ pub struct AxisConfig {
     #[serde(rename = "titleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font_style: Option<Color>,
+    pub title_font_style: Option<Box<Color>>,
     #[serde(rename = "titleFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -20481,11 +20481,11 @@ pub struct BarConfig {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -20564,7 +20564,7 @@ pub struct BarConfig {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -20582,7 +20582,7 @@ pub struct BarConfig {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -20612,7 +20612,7 @@ pub struct BarConfig {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -20620,7 +20620,7 @@ pub struct BarConfig {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -20630,7 +20630,7 @@ pub struct BarConfig {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -20655,7 +20655,7 @@ pub struct BarConfig {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -20712,7 +20712,7 @@ pub struct BarConfig {
     pub radius2: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -20825,7 +20825,7 @@ pub struct BarConfig {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -20938,11 +20938,11 @@ pub struct MarkConfig {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -20999,7 +20999,7 @@ pub struct MarkConfig {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -21011,7 +21011,7 @@ pub struct MarkConfig {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21041,7 +21041,7 @@ pub struct MarkConfig {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21049,7 +21049,7 @@ pub struct MarkConfig {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21059,7 +21059,7 @@ pub struct MarkConfig {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -21084,7 +21084,7 @@ pub struct MarkConfig {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21141,7 +21141,7 @@ pub struct MarkConfig {
     pub radius2: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -21254,7 +21254,7 @@ pub struct MarkConfig {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -21497,7 +21497,7 @@ pub struct HeaderConfig {
     #[serde(rename = "labelColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_color: Option<Color>,
+    pub label_color: Option<Box<Color>>,
     /// [Vega expression](https://vega.github.io/vega/docs/expressions/) for customizing labels.
     ///
     /// __Note:__ The label text and value can be assessed via the `label` and `value` properties
@@ -21510,7 +21510,7 @@ pub struct HeaderConfig {
     #[serde(rename = "labelFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_font: Option<Color>,
+    pub label_font: Option<Box<Color>>,
     /// The font size of the header label, in pixels.
     #[serde(rename = "labelFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -21520,7 +21520,7 @@ pub struct HeaderConfig {
     #[serde(rename = "labelFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_font_style: Option<Color>,
+    pub label_font_style: Option<Box<Color>>,
     /// The font weight of the header label.
     #[serde(rename = "labelFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -21599,12 +21599,12 @@ pub struct HeaderConfig {
     #[serde(rename = "titleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_color: Option<Color>,
+    pub title_color: Option<Box<Color>>,
     /// Font of the header title. (e.g., `"Helvetica Neue"`).
     #[serde(rename = "titleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font: Option<Color>,
+    pub title_font: Option<Box<Color>>,
     /// Font size of the header title.
     #[serde(rename = "titleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -21614,7 +21614,7 @@ pub struct HeaderConfig {
     #[serde(rename = "titleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font_style: Option<Color>,
+    pub title_font_style: Option<Box<Color>>,
     /// Font weight of the header title. This can be either a string (e.g `"bold"`, `"normal"`)
     /// or a number (`100`, `200`, `300`, ..., `900` where `"normal"` = `400` and `"bold"` =
     /// `700`).
@@ -21677,7 +21677,7 @@ pub struct LegendConfig {
     pub corner_radius: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     /// The direction of the legend, one of `"vertical"` or `"horizontal"`.
     ///
     /// __Default value:__
@@ -21695,7 +21695,7 @@ pub struct LegendConfig {
     #[serde(rename = "fillColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub fill_color: Option<Color>,
+    pub fill_color: Option<Box<Color>>,
     #[serde(rename = "gradientDirection")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21735,7 +21735,7 @@ pub struct LegendConfig {
     #[serde(rename = "gradientStrokeColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub gradient_stroke_color: Option<Color>,
+    pub gradient_stroke_color: Option<Box<Color>>,
     #[serde(rename = "gradientStrokeWidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21775,11 +21775,11 @@ pub struct LegendConfig {
     #[serde(rename = "labelColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_color: Option<Color>,
+    pub label_color: Option<Box<Color>>,
     #[serde(rename = "labelFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_font: Option<Color>,
+    pub label_font: Option<Box<Color>>,
     #[serde(rename = "labelFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21787,7 +21787,7 @@ pub struct LegendConfig {
     #[serde(rename = "labelFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub label_font_style: Option<Color>,
+    pub label_font_style: Option<Box<Color>>,
     #[serde(rename = "labelFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21855,7 +21855,7 @@ pub struct LegendConfig {
     #[serde(rename = "strokeColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub stroke_color: Option<Color>,
+    pub stroke_color: Option<Box<Color>>,
     #[serde(rename = "strokeDash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21867,11 +21867,11 @@ pub struct LegendConfig {
     #[serde(rename = "symbolBaseFillColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub symbol_base_fill_color: Option<Color>,
+    pub symbol_base_fill_color: Option<Box<Color>>,
     #[serde(rename = "symbolBaseStrokeColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub symbol_base_stroke_color: Option<Color>,
+    pub symbol_base_stroke_color: Option<Box<Color>>,
     #[serde(rename = "symbolDash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21887,7 +21887,7 @@ pub struct LegendConfig {
     #[serde(rename = "symbolFillColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub symbol_fill_color: Option<Color>,
+    pub symbol_fill_color: Option<Box<Color>>,
     #[serde(rename = "symbolLimit")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21907,7 +21907,7 @@ pub struct LegendConfig {
     #[serde(rename = "symbolStrokeColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub symbol_stroke_color: Option<Color>,
+    pub symbol_stroke_color: Option<Box<Color>>,
     #[serde(rename = "symbolStrokeWidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21915,7 +21915,7 @@ pub struct LegendConfig {
     #[serde(rename = "symbolType")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub symbol_type: Option<Color>,
+    pub symbol_type: Option<Box<Color>>,
     #[serde(rename = "tickCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21939,11 +21939,11 @@ pub struct LegendConfig {
     #[serde(rename = "titleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_color: Option<Color>,
+    pub title_color: Option<Box<Color>>,
     #[serde(rename = "titleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font: Option<Color>,
+    pub title_font: Option<Box<Color>>,
     #[serde(rename = "titleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -21951,7 +21951,7 @@ pub struct LegendConfig {
     #[serde(rename = "titleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font_style: Option<Color>,
+    pub title_font_style: Option<Box<Color>>,
     #[serde(rename = "titleFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -22010,11 +22010,11 @@ pub struct LineConfig {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -22071,7 +22071,7 @@ pub struct LineConfig {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -22083,7 +22083,7 @@ pub struct LineConfig {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -22113,7 +22113,7 @@ pub struct LineConfig {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -22121,7 +22121,7 @@ pub struct LineConfig {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -22131,7 +22131,7 @@ pub struct LineConfig {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -22156,7 +22156,7 @@ pub struct LineConfig {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -22229,7 +22229,7 @@ pub struct LineConfig {
     pub radius2: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -22342,7 +22342,7 @@ pub struct LineConfig {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -23163,11 +23163,11 @@ pub struct StyleValue {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -23239,7 +23239,7 @@ pub struct StyleValue {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -23257,7 +23257,7 @@ pub struct StyleValue {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -23287,7 +23287,7 @@ pub struct StyleValue {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -23295,7 +23295,7 @@ pub struct StyleValue {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -23305,7 +23305,7 @@ pub struct StyleValue {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -23330,7 +23330,7 @@ pub struct StyleValue {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -23393,7 +23393,7 @@ pub struct StyleValue {
     pub radius2: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -23507,7 +23507,7 @@ pub struct StyleValue {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -23612,7 +23612,7 @@ pub struct StyleValue {
     #[serde(rename = "domainColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub domain_color: Option<Color>,
+    pub domain_color: Option<Box<Color>>,
     #[serde(rename = "domainDash")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -23958,11 +23958,11 @@ pub struct StyleValue {
     #[serde(rename = "titleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_color: Option<Color>,
+    pub title_color: Option<Box<Color>>,
     #[serde(rename = "titleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font: Option<Color>,
+    pub title_font: Option<Box<Color>>,
     #[serde(rename = "titleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -23970,7 +23970,7 @@ pub struct StyleValue {
     #[serde(rename = "titleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub title_font_style: Option<Color>,
+    pub title_font_style: Option<Box<Color>>,
     #[serde(rename = "titleFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24035,11 +24035,11 @@ pub struct TickConfig {
     #[serde(rename = "ariaRole")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role: Option<Color>,
+    pub aria_role: Option<Box<Color>>,
     #[serde(rename = "ariaRoleDescription")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub aria_role_description: Option<Color>,
+    pub aria_role_description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub aspect: Option<Aria>,
@@ -24104,7 +24104,7 @@ pub struct TickConfig {
     pub cursor: Option<CursorUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub description: Option<Color>,
+    pub description: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dir: Option<Dir>,
@@ -24116,7 +24116,7 @@ pub struct TickConfig {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub ellipsis: Option<Color>,
+    pub ellipsis: Option<Box<Color>>,
     #[serde(rename = "endAngle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24146,7 +24146,7 @@ pub struct TickConfig {
     pub fill_opacity: Option<Opacity>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24154,7 +24154,7 @@ pub struct TickConfig {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24164,7 +24164,7 @@ pub struct TickConfig {
     pub height: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub href: Option<Color>,
+    pub href: Option<Box<Color>>,
     /// The inner radius in pixels of arc marks. `innerRadius` is an alias for `radius2`.
     ///
     /// __Default value:__ `0`
@@ -24189,7 +24189,7 @@ pub struct TickConfig {
     #[serde(rename = "lineBreak")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub line_break: Option<Color>,
+    pub line_break: Option<Box<Color>>,
     #[serde(rename = "lineHeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24246,7 +24246,7 @@ pub struct TickConfig {
     pub radius2: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub shape: Option<Color>,
+    pub shape: Option<Box<Color>>,
     /// Default size for marks.
     /// - For `point`/`circle`/`square`, this represents the pixel area of the marks. Note that
     /// this value sets the area of the symbol; the side lengths will increase with the square
@@ -24365,7 +24365,7 @@ pub struct TickConfig {
     pub tooltip: Option<OverlayMarkDefTooltip>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub url: Option<Color>,
+    pub url: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub width: Option<CornerRadiusUnion>,
@@ -24430,7 +24430,7 @@ pub struct BaseTitleNoValueRefs {
     pub baseline: Option<Baseline>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub color: Option<Color>,
+    pub color: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub dx: Option<CornerRadiusUnion>,
@@ -24439,7 +24439,7 @@ pub struct BaseTitleNoValueRefs {
     pub dy: Option<CornerRadiusUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font: Option<Color>,
+    pub font: Option<Box<Color>>,
     #[serde(rename = "fontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24447,14 +24447,14 @@ pub struct BaseTitleNoValueRefs {
     #[serde(rename = "fontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub font_style: Option<Color>,
+    pub font_style: Option<Box<Color>>,
     #[serde(rename = "fontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub font_weight: Option<FontWeightUnion>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub frame: Option<Color>,
+    pub frame: Option<Box<Color>>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
     pub limit: Option<FontSize>,
@@ -24471,11 +24471,11 @@ pub struct BaseTitleNoValueRefs {
     #[serde(rename = "subtitleColor")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub subtitle_color: Option<Color>,
+    pub subtitle_color: Option<Box<Color>>,
     #[serde(rename = "subtitleFont")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub subtitle_font: Option<Color>,
+    pub subtitle_font: Option<Box<Color>>,
     #[serde(rename = "subtitleFontSize")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24483,7 +24483,7 @@ pub struct BaseTitleNoValueRefs {
     #[serde(rename = "subtitleFontStyle")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub subtitle_font_style: Option<Color>,
+    pub subtitle_font_style: Option<Box<Color>>,
     #[serde(rename = "subtitleFontWeight")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -24558,7 +24558,7 @@ pub struct ViewConfig {
     /// __Default value:__ `undefined`
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
-    pub fill: Option<Color>,
+    pub fill: Option<Box<Color>>,
     #[serde(rename = "fillOpacity")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[builder(default)]
@@ -26119,7 +26119,7 @@ pub enum Keyvals {
 pub enum SpecHeight {
     Double(f64),
     Enum(HeightEnum),
-    Step(Step),
+    Step(Box<Step>),
 }
 
 /// A string describing the mark type (one of `"bar"`, `"circle"`, `"square"`, `"tick"`,
@@ -26485,7 +26485,7 @@ pub enum TypeUnion {
 pub enum TitleUnion {
     String(String),
     StringArray(Vec<String>),
-    TitleParams(TitleParams),
+    TitleParams(Box<TitleParams>),
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
