@@ -23,7 +23,7 @@ jobs:
       - name: Set up Rust
         run: rustup show
       - name: Free Disk Space (Ubuntu)
-        if: ${{ matrix.os == ubuntu-latest }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: jlumbroso/free-disk-space@main
         with:
           tool-cache: false
